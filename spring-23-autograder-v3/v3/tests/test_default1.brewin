@@ -1,0 +1,6 @@
+(class main
+    (field int x)
+    (method void main ()
+      (print x)
+    )
+  )

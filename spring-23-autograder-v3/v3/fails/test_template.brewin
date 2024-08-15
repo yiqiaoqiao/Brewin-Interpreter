@@ -1,0 +1,16 @@
+(tclass MyTemplatedClass (shape_type animal_type)
+  (field MyTemplatedClass@shape_type@animal_type some_class)
+    (method void act (MyTemplatedClass@shape_type@animal_type so)
+        (set some_class so)
+    ) 
+)
+
+(class main
+  (method void main ()
+    (let ((MyTemplatedClass@int@string t))
+      (set t (new MyTemplatedClass@int@string))
+      (call t act t)
+    )
+  )
+)
+

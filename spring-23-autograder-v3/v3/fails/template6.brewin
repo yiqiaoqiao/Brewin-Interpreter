@@ -1,0 +1,16 @@
+(tclass Foo (field_type)
+  (method void compare_to_5 ((field_type x)) 
+    (return (== x 5)) #== operator applied to two incompatible types
+  )
+)
+
+(class Duck
+  (method void quack () 
+    (print "quack")))
+(class main
+  (field Foo@Duck t1)
+    (method void main () 
+      (begin
+        (set t1 (new Foo@Duck))
+        (call t1 compare_to_5 (new Duck)) #type error generated
+)))

@@ -1,0 +1,32 @@
+(tclass MyTemplatedClass (shape_type animal_type)
+  (field shape_type some_shape)
+  (field animal_type some_animal)
+  	  (method void act ((shape_type s) (animal_type a))
+          (begin
+            (print "Shape's area: " (call s get_area))
+            (print "Animal's name: " (call a get_name))
+          )
+        ) 
+      )
+(class Square
+  (field int side 10)
+  (method int get_area () (return (* side side)))
+)
+
+(class Dog
+  (field string name "koda")
+  (method string get_name () (return name))
+)
+
+(class main
+  (method void main ()
+    (let ((Square s) (Dog d) (MyTemplatedClass@Square@Dog t))
+      (set s (new Square))
+      (set d (new Dog))
+      
+      (set t (new MyTemplatedClass@Square@Dog))
+      (if (== t (new MyTemplatedClass@int@bool)) (print "hi"))
+      (call t act s d)
+    )
+  )
+)
